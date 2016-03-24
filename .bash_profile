@@ -1,6 +1,10 @@
 export PATH=$PATH:~/android-studio/bin/
 export PATH=$PATH:~/bin/
 
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+export ANT_HOME=/usr/local/ant
+export PATH=$PATH:$ANT_HOME/bin
+
 # to get into the vi editing mode type
 set -o vi
 
