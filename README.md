@@ -1,4 +1,4 @@
-# Managing Dotfiles using GNU Stow
+# Manage Dotfiles using GNU Stow
 I found this method so easy and practical. 
 
 ## Steps
@@ -16,7 +16,7 @@ $ mkdir dotfiles ~/
 
 * Create subdirectories for your need. ex: bash, vim, tmux etc
 * Move your dotfiles in propriate subdir.
-* Following command creates a symbolic link to .basrc in your home directory.
+* Following command creates a symbolic link to .bashrc in your home directory.
 
 ```shell
 # pwd: ~/dotfiles/
@@ -26,16 +26,16 @@ $ stow bash
 
 * Now everything is easy cheesy, dotfiles directory can be a normal git repo.
 
-# Older Method
-There are problems with the following methods to keep organized dotfiles, 
+### Older Method
+There are problems with the following method to keep organized dotfiles, 
 
 * using your home directory as git repo is not a good idea. It is confusing.
-* using git in a different way is so helpful
+* using git in a different way is not so helpful
 * I set up once, and I didnt even update it in months because it wasnt so
-  practical. 
+  practical.
 * Letting here for historical reasons
 
-# Keeping Dotfiles Safe
+#### Keeping Dotfiles Safe
 
 Good for first start
 - https://www.foraker.com/blog/get-your-dotfiles-under-control
@@ -47,7 +47,7 @@ echo "*" > .gitignore
 git add -f .vimrc             # force to add file
 ```
 
-# To list the files included in the git repo
+#### To list the files included in the git repo
 ```bash
 git ls-tree -r master --name-only 
 ```
