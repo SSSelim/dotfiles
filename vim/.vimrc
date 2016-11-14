@@ -156,7 +156,7 @@ set t_Co=256
 let g:airline_powerline_fonts=1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_theme='solarized'
+let g:airline_theme='powerlineish'
 let g:airline#extensions#tabline#enabled = 1 " enable airline tabline
 let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
 let g:airline#extensions#tabline#show_buffers = 0 " do not show open buffers in tabline
@@ -174,10 +174,11 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
-"
+
 "" settings for Vim-Colors-Solarized
-let g:solarized_termcolors=16
-set t_Co=16
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+set t_Co=256
 set background=dark
 colorscheme solarized
 
@@ -214,7 +215,7 @@ set statusline+=\ %{rvm#statusline()}
 set statusline+=\ [line\ %l\/%L]
 
 " Colour
-hi StatusLine ctermfg=Black ctermbg=White
+" hi StatusLine ctermfg=Black ctermbg=White
 
 " Change colour of statusline in insert mode
 au InsertEnter * hi StatusLine ctermbg=DarkBlue
