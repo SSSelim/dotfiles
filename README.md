@@ -24,6 +24,12 @@ $ stow bash
 # .bashrc -> dotfiles/bash/.bashrc
 ```
 
+* Unlink 
+```shell
+# pwd: ~/dotfiles/
+$ stow -D bash # removes the symbolic link
+```
+
 * Now everything is easy cheesy, dotfiles directory can be a normal git repo.
 
 ### Older Method
