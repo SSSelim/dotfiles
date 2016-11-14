@@ -2,6 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+echo "Now executing .bashrc..."
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -99,12 +101,13 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+  . ~/.bash_aliases
 fi
 
 if [ -f ~/.bash_profile ]; then
-    . ~/.bash_profile
+  . ~/.bash_profile
 fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -116,8 +119,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-echo "Now executing .bashrc..."
-echo
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/Android/Sdk"
@@ -126,5 +127,10 @@ export PATH="$PATH:$HOME/Android/Sdk"
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # for solarized dark theme
-TERM='xterm-256color'
+export TERM='screen-256color'
 
+# powerline-status setting
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
