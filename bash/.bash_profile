@@ -1,3 +1,4 @@
+echo "sourcing bash_profile"
 export EDITOR='vim'
 
 export PATH=$PATH:~/android-studio/bin/
