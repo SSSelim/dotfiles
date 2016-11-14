@@ -8,7 +8,7 @@ set nocompatible
 " interferes with the way that vundle alters the runtime environment.
 filetype off
 
-" Adjust vim's runtime path to include the vundle location.
+  " Adjust vim's runtime path to include the vundle location.
 set rtp+=~/.vim/bundle/vundle/
 
 " call the vundle initialization function:
@@ -200,6 +200,10 @@ let g:syntastic_check_on_wq = 0
 "" :SyntasticToggleMode and :SyntasticCheck
 "" :help syntastic-commands
 silent! nmap <F6> :SyntasticToggleMode<CR>
+
+" NERDTree plugin
+map <C-n> :NERDTreeToggle<CR>
+"   '
 "  ---------------------------------------------------------------------------
 "  Status Line
 "  ---------------------------------------------------------------------------
