@@ -53,8 +53,6 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 "" syntax checking
 Plugin 'scrooloose/syntastic'
-
-
 "" HTML and CSS Plugin
 Plugin 'mattn/emmet-vim'
 "" ruby stuff
@@ -62,6 +60,9 @@ Plugin 'tpope/vim-rails'
 Plugin 'vim-ruby/vim-ruby'
 "" scala plugin
 Plugin 'derekwyatt/vim-scala'
+
+"" Markdown preview
+Plugin 'suan/vim-instant-markdown'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
