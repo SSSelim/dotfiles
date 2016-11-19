@@ -64,6 +64,11 @@ Plugin 'derekwyatt/vim-scala'
 "" Markdown preview
 Plugin 'suan/vim-instant-markdown'
 
+"" snippets engine
+Plugin 'SirVer/ultisnips'
+"" snippets
+Plugin 'honza/vim-snippets'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 " Enable file type detection and do language-dependent indenting.
@@ -87,6 +92,13 @@ abbr funciton function
 abbr teh the
 abbr tempalte template
 abbr fitler filter
+abbr rtfm read the fine manual
+abbr #b /****************************************¬
+abbr #e <space>****************************************/¬
+abbr #m ```
+abbr sout System.out.println();
+
+
 
 set autoread                      " detect when a file is changed
 
@@ -204,7 +216,17 @@ silent! nmap <F6> :SyntasticToggleMode<CR>
 
 " NERDTree plugin
 map <C-n> :NERDTreeToggle<CR>
-"   '
+
+
+" UltiSnips Plugin Settings
+" Trigger configuration. Do not use <tab> if you use
+let g:UltiSnipsExpandTrigger="<c-l>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"
+" " If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
 "  ---------------------------------------------------------------------------
 "  Status Line
 "  ---------------------------------------------------------------------------
@@ -260,3 +282,8 @@ set list
 set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 set showbreak=↪
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+"" Paste MODE
+nnoremap <F2> :set invpaste paste?<CR>  " maps F2 to invert paste mode in normal mode
+set pastetoggle=<F2>                    " toggle paste mode in insert mode
+set showmode                            " visual feedback
