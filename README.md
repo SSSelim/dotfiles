@@ -5,18 +5,20 @@ I found this method so easy and practical.
 
 * Back up the dotfiles just in case
 * Install [GNU Stow](https://www.gnu.org/software/stow/)
+
 ```shell
 $ sudo apt-get install stow
 ```
 
 * Create a directory named dotfiles in your home directory
+
 ```shell
 $ mkdir dotfiles ~/
 ```
 
 * Create subdirectories for your need. ex: bash, vim, tmux etc
-* Move your dotfiles in propriate subdir.
-* Following command creates a symbolic link to .bashrc in your home directory.
+* Move your dotfiles in apropriate subdirectories
+* Following command creates a symbolic link to .bashrc in your home directory
 
 ```shell
 # pwd: ~/dotfiles/
@@ -24,7 +26,8 @@ $ stow bash
 # .bashrc -> dotfiles/bash/.bashrc
 ```
 
-* Unlink 
+* Unlink
+
 ```shell
 # pwd: ~/dotfiles/
 $ stow -D bash # removes the symbolic link
