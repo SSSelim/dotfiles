@@ -63,7 +63,7 @@ Plugin 'derekwyatt/vim-scala'
 
 "" Markdown preview
 Plugin 'suan/vim-instant-markdown'
-
+" Plugin 'artur-shaik/vim-javacomplete2'
 "" snippets engine
 Plugin 'SirVer/ultisnips'
 "" snippets
@@ -210,6 +210,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers=['eslint']
 "" :SyntasticToggleMode and :SyntasticCheck
 "" :help syntastic-commands
 silent! nmap <F6> :SyntasticToggleMode<CR>
@@ -224,6 +225,7 @@ let g:UltiSnipsExpandTrigger="<c-l>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 "
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "my-snippets"]
 " " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
