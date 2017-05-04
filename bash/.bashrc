@@ -2,7 +2,7 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-echo "Now executing .bashrc..."
+#echo "Now executing .bashrc..."
 
 # If not running interactively, don't do anything
 case $- in
@@ -134,3 +134,7 @@ powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
 . /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/ssselim/.sdkman"
+[[ -s "/home/ssselim/.sdkman/bin/sdkman-init.sh" ]] && source "/home/ssselim/.sdkman/bin/sdkman-init.sh"
