@@ -1,5 +1,5 @@
 {
-  "extends": "eslint:all",
+  "extends": "eslint:recommended",
   "env": {
     "browser": true,
     "node": true,
