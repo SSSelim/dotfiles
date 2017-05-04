@@ -69,6 +69,9 @@ Plugin 'SirVer/ultisnips'
 "" snippets
 Plugin 'honza/vim-snippets'
 
+"" Javascript Plugins
+Plugin 'pangloss/vim-javascript'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 " Enable file type detection and do language-dependent indenting.
@@ -160,6 +163,7 @@ endif
 if (empty($TMUX) && has("termguicolors"))
   set termguicolors
 endif
+
 "  ---------------------------------------------------------------------------
 "  Settings for Plugins
 "  ---------------------------------------------------------------------------
@@ -169,7 +173,7 @@ set t_Co=256
 let g:airline_powerline_fonts=1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_theme='powerlineish'
+let g:airline_theme='solarized'
 let g:airline#extensions#tabline#enabled = 1 " enable airline tabline
 let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
 let g:airline#extensions#tabline#show_buffers = 0 " do not show open buffers in tabline
@@ -275,6 +279,9 @@ imap jj <ESC>
 " Easy commenting
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
+
+" instant markdown: manually trigger preview via the command :InstantMarkdownPreview
+let g:instant_markdown_autostart = 0
 "
 "  ----------------------------------------------------------------------------
 "  Experimenting
