@@ -85,5 +85,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
+#-----------------------------------------------------------------
+# Aliases: syntax is same in zsh and bash, keep them in one place
+#-----------------------------------------------------------------
+source ~/.bash_aliases
+source ~/.bash_profile
 # Powerline
 #. /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
