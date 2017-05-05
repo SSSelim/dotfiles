@@ -258,12 +258,17 @@ set statusline+=\ [line\ %l\/%L] " line x of y
 "  Mappings
 "  ---------------------------------------------------------------------------
 let mapleader = ","
-" move line downward
-nnoremap <leader>- ddo<ESC>p
+
+" swap colon and semicolon, save yourself from one keystroke
+nnoremap ; :
+nnoremap : ;
 
 " map ESC to exit insert mode
 inoremap jk <esc>
 inoremap <esc> <nop>
+
+" move line downward
+nnoremap <leader>- ddo<ESC>p
 
 " delete line in insert mode
 inoremap <c-d> <esc>ddi
