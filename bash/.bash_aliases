@@ -9,3 +9,10 @@ alias ssc='grep -inIEr --color=ALWAYS'
 # start scala repl with color hightlight
 alias scala='scala -Dscala.color'
 
+
+#-----------------------------------
+# easy access to common files
+#-----------------------------------
+alias bashrc='vim ~/.bashrc'
+alias vimrc='vim ~/.vimrc'
+alias zshrc='vim ~/.zshrc'
