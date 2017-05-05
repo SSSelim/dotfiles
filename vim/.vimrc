@@ -101,8 +101,6 @@ abbr #e <space>****************************************/¬
 abbr #m ```
 abbr sout System.out.println();
 
-
-
 set autoread                      " detect when a file is changed
 
 " set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -164,9 +162,16 @@ if (empty($TMUX) && has("termguicolors"))
   set termguicolors
 endif
 
+" check to make sure vim has been compiled with colorcolumn support
+" before enabling it
+if exists("+colorcolumn")
+  set colorcolumn=+1
+endif
+
 "  ---------------------------------------------------------------------------
 "  Settings for Plugins
 "  ---------------------------------------------------------------------------
+
 "" vim-airline options
 set laststatus=2
 set t_Co=256
@@ -199,11 +204,6 @@ set t_Co=256
 set background=dark
 colorscheme solarized
 
-" check to make sure vim has been compiled with colorcolumn support
-" before enabling it
-if exists("+colorcolumn")
-	set colorcolumn=+1
-endif
 
 "" syntastic plugin
 set statusline+=%#warningmsg#
@@ -215,13 +215,12 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers=['eslint']
+
 "" :SyntasticToggleMode and :SyntasticCheck
-"" :help syntastic-commands
 silent! nmap <F6> :SyntasticToggleMode<CR>
 
 " NERDTree plugin
 map <C-n> :NERDTreeToggle<CR>
-
 
 " UltiSnips Plugin Settings
 " Trigger configuration. Do not use <tab> if you use
@@ -233,55 +232,63 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "my-snippets"]
 " " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-"  ---------------------------------------------------------------------------
-"  Status Line
-"  ---------------------------------------------------------------------------
-" path
-set statusline=%f
-" flags
-set statusline+=%m%r%h%w
-" encoding
-set statusline+=\ [%{strlen(&fenc)?&fenc:&enc}]
-" rvm
-set statusline+=\ %{rvm#statusline()}
-" line x of y
-set statusline+=\ [line\ %l\/%L]
-
-" Colour
-" hi StatusLine ctermfg=Black ctermbg=White
-
-" Change colour of statusline in insert mode
-au InsertEnter * hi StatusLine ctermbg=DarkBlue
-au InsertLeave * hi StatusLine ctermfg=Black ctermbg=White
-
-"  ---------------------------------------------------------------------------
-"  Mappings
-"  ---------------------------------------------------------------------------
-" Turn off arrow keys (this might not be a good idea for beginners, but it is
-" the best way to ween yourself of arrow keys on to hjkl)
-
-" http://yehudakatz.com/2010/07/29/everyone-who-tried-to-convince-me-to-use-vim-was-wrong/
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>"
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-
-nnoremap j gj
-nnoremap k gk
-
-" Map ESC
-imap jj <ESC>
-
 " Easy commenting
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
 
 " instant markdown: manually trigger preview via the command :InstantMarkdownPreview
 let g:instant_markdown_autostart = 0
+
+"  ---------------------------------------------------------------------------
+"  Status Line
+"  ---------------------------------------------------------------------------
+set statusline=%f              " path relative
+set statusline+=%m%r%h%w       " flags
+set statusline+=\ [%{strlen(&fenc)?&fenc:&enc}] " encoding
+set statusline+=\ [line\ %l\/%L] " line x of y
+
+" " Colour
+" hi StatusLine ctermfg=Black ctermbg=White
+"
+" " Change colour of statusline in insert mode
+" au InsertEnter * hi StatusLine ctermbg=DarkBlue
+" au InsertLeave * hi StatusLine ctermfg=Black ctermbg=White
+
+"  ---------------------------------------------------------------------------
+"  Mappings
+"  ---------------------------------------------------------------------------
+let mapleader = ","
+" move line downward
+nnoremap <leader>- ddo<ESC>p
+
+" map ESC to exit insert mode
+inoremap jk <esc>
+inoremap <esc> <nop>
+
+" delete line in insert mode
+inoremap <c-d> <esc>ddi
+
+" make it easier to edit vimrc: Edit Vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" surround the word in double quotes
+nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
+
+" turn off arrow keys, force yourself to use hjkl
+nnoremap <Left>   :echoe "Use h"<CR>
+nnoremap <Right>  :echoe "Use l"<CR>
+nnoremap <Up>     :echoe "Use k"<CR>
+nnoremap <Down>   :echoe "Use j"<CR>
+inoremap <Up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+" turn off arrow keys, force yourself to use hjkl
+
+nnoremap j gj
+nnoremap k gk
+
 "
 "  ----------------------------------------------------------------------------
 "  Experimenting
