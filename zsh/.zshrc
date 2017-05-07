@@ -105,3 +105,35 @@ fzf-dmenu() {
 # hotkey to run the function (Ctrl+O)
 # this wouldnt work in other command line programs like vim: see tmux.conf
 bindkey -s '^O' "fzf-dmenu\n"
+
+. /usr/share/autojump/autojump.sh
+
+##############################
+# Zplug
+##############################
+
+# Check if zplug is installed
+if [[ ! -d ~/.zplug ]]; then
+  git clone https://github.com/zplug/zplug ~/.zplug
+  source ~/.zplug/init.zsh && zplug update --self
+fi
+
+# Essential
+source ~/.zplug/init.zsh
+
+# Zplug plugins
+zplug "zplug/zplug"
+zplug "changyuheng/fz", defer:1
+zplug "rupa/z", use:z.sh
+
+# Install packages that have not been installed yet
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    else
+        echo
+    fi
+fi
+
+zplug load --verbose
