@@ -270,12 +270,17 @@ inoremap <esc> <nop>
 " move line downward
 nnoremap <leader>- ddo<ESC>p
 
+inoremap <c-v> <esc>"+pi
+
 " delete line in insert mode
 inoremap <c-d> <esc>ddi
 
 " make it easier to edit vimrc: Edit Vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+nnoremap <leader>ez :vsplit ~/.zshrc<cr>
+nnoremap <leader>et :vsplit ~/.tmux.conf<cr>
 
 " surround the word in double quotes
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
