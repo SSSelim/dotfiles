@@ -10,6 +10,8 @@ filetype off
 
   " Adjust vim's runtime path to include the vundle location.
 set rtp+=~/.vim/bundle/vundle/
+" If installed using git
+set rtp+=~/.fzf
 
 " call the vundle initialization function:
 call vundle#begin()
@@ -51,6 +53,7 @@ Plugin 'tmhedberg/matchit'
 Plugin 'tomtom/tcomment_vim'
 "" Fuzzy file, buffer, mru, tag, etc finder.
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'junegunn/fzf.vim'
 "" syntax checking
 Plugin 'scrooloose/syntastic'
 "" HTML and CSS Plugin
@@ -299,9 +302,25 @@ inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
+"  ----------------------------------------------------------------------------
+"  Splits
+"  ----------------------------------------------------------------------------
+" vertical split:vsp
+" horizont split:sp
+" heighted split:10sp
+
+" more natural split opening
+set splitbelow
+set splitright
+
+" Easier Split Navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-L> <C-W><C-L>
 "
 "  ----------------------------------------------------------------------------
-"  Experimenting
+"  experimenting
 "  ----------------------------------------------------------------------------
 " toggle invisible characters
 set list
