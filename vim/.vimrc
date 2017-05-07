@@ -8,10 +8,11 @@ set nocompatible
 " interferes with the way that vundle alters the runtime environment.
 filetype off
 
-  " Adjust vim's runtime path to include the vundle location.
+" Adjust vim's runtime path to include the vundle location.
 set rtp+=~/.vim/bundle/vundle/
 " If installed using git
 set rtp+=~/.fzf
+
 
 " call the vundle initialization function:
 call vundle#begin()
@@ -75,6 +76,7 @@ Plugin 'honza/vim-snippets'
 "" Javascript Plugins
 Plugin 'pangloss/vim-javascript'
 
+Plugin 'tpope/vim-fugitive'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 " Enable file type detection and do language-dependent indenting.
