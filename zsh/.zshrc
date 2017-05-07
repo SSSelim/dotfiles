@@ -51,7 +51,7 @@ ZSH_THEME="avit"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -90,5 +90,18 @@ source $ZSH/oh-my-zsh.sh
 #-----------------------------------------------------------------
 source ~/.bash_aliases
 source ~/.bash_profile
+
 # Powerline
 #. /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+fzf-dmenu() {
+  # note: xdg-open has a bug with .desktop files, so we cant use that shit
+  selected="$(ls /usr/share/applications | fzf -e)"
+  nohup `grep '^Exec' "/usr/share/applications/$selected" | tail -1 | sed 's/^Exec=//' | sed 's/%.//'` >/dev/null 2>&1&
+}
+
+# hotkey to run the function (Ctrl+O)
+# this wouldnt work in other command line programs like vim: see tmux.conf
+bindkey -s '^O' "fzf-dmenu\n"
