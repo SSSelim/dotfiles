@@ -77,6 +77,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'pangloss/vim-javascript'
 
 Plugin 'tpope/vim-fugitive'
+
+Plugin 'christoomey/vim-run-interactive'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 " Enable file type detection and do language-dependent indenting.
@@ -274,6 +276,8 @@ inoremap <esc> <nop>
 
 " move line downward
 nnoremap <leader>- ddo<ESC>p
+
+nnoremap <leader>r :RunInInteractiveShell<space>
 
 inoremap <c-v> <esc>"+pi
 
