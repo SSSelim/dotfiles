@@ -1,0 +1,77 @@
+source ~/.vimrc
+
+set nonumber
+set norelativenumber
+set numberwidth=0
+
+" nnoremap g] :action GotoImplementation<CR>
+
+nnoremap <leader>siv :source ~/.ideavimrc<cr>
+
+" https://gist.github.com/zchee/9c78f91cc5ad771c1f5d
+" :actionlist
+
+" emulate vim-surround plugin
+set surround
+
+nnoremap // :action CommentByLineComment<CR>
+
+nnoremap gi :action GotoImplementation<CR>
+nnoremap go :action OverrideMethods<CR>
+
+" default idea behavior
+nnoremap <C-e> :action RecentFiles<CR>
+
+" built-in nagivation to nativated items work better
+nnoremap <c-o> :action Back<cr>
+nnoremap <c-i> :action Forward<cr>
+
+" unimpaired mappings
+nnoremap [<space> O<esc>j
+nnoremap ]<space> o<esc>k
+nnoremap [q :action PreviousOccurence<cr>
+nnoremap ]q :action NextOccurence<cr>
+nnoremap [m :action MethodUp<cr>
+nnoremap ]m :action MethodDown<cr>
+nnoremap [c :action VcsShowPrevChangeMarker<cr>
+nnoremap ]c :action VcsShowNextChangeMarker<cr>
+
+
+" code refactoring
+nnoremap <space>rr :action RenameElement<cr>
+
+
+" actions
+nnoremap <space>q :action CloseContent<cr>
+nnoremap <space>Q :action ReopenClosedTab<cr>
+nnoremap <space>\ :action VimFilePrevious<cr>
+" s does not work, acts usual vim s
+nnoremap <space>E :action SearchEverywhere<cr>
+nnoremap <space>e :action Switcher<cr>
+nnoremap <space>m :action FileStructurePopup<cr>
+nnoremap <space>T :action GotoSymbol<cr>
+nnoremap <space>a :action GotoAction<cr>
+nnoremap <space>b :action ToggleLineBreakpoint<cr>
+nnoremap <space>h :action HideAllWindows<cr>
+
+nnoremap <space>pi :action ParameterInfo<cr>
+
+" generate
+nnoremap <space>gt :action GenerateTestMethod<CR>
+nnoremap <space>gS :action GenerateSetUpMethod<CR>
+nnoremap <space>gg :action GenerateGetter<CR>
+nnoremap <space>gs :action GenerateSetter<CR>
+nnoremap <space>ga :action GenerateGetterAndSetter<CR>
+nnoremap <space>ge :action GenerateEquals<CR>
+nnoremap <space>gc :action GenerateConstructor<CR>
+nnoremap <space>G :action Generate<CR>
+
+" windows
+nnoremap <space>wa :action ActivateAntBuildToolWindow<CR>
+nnoremap <space>wm :action ActivateEventLogToolWindow<CR>
+nnoremap <space>wg :action ActivateGradleToolWindow<CR>
+nnoremap <space>wd :action ActivateDebugToolWindow<CR>
+nnoremap <space>wr :action ActivateRunToolWindow<CR>
+nnoremap <space>wb :action ViewBreakpoints<CR>
+nnoremap <space>wp :action ActivateProjectToolWindow<CR>
+nnoremap <space>fs :action ToggleFullScreen<CR>
