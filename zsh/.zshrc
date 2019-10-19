@@ -113,10 +113,10 @@ bindkey -s '^O' "fzf-dmenu\n"
 ##############################
 
 # Check if zplug is installed
-if [[ ! -d ~/.zplug ]]; then
-  git clone https://github.com/zplug/zplug ~/.zplug
-  source ~/.zplug/init.zsh && zplug update --self
-fi
+# if [[ ! -d ~/.zplug ]]; then
+#   git clone https://github.com/zplug/zplug ~/.zplug
+#   source ~/.zplug/init.zsh && zplug update --self
+# fi
 
 # Essential
 source ~/.zplug/init.zsh
@@ -126,14 +126,22 @@ zplug "zplug/zplug"
 zplug "changyuheng/fz", defer:1
 zplug "rupa/z", use:z.sh
 
-# Install packages that have not been installed yet
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    else
-        echo
-    fi
-fi
+# # Install packages that have not been installed yet
+# if ! zplug check --verbose; then
+#     printf "Install? [y/N]: "
+#     if read -q; then
+#         echo; zplug install
+#     else
+#         echo
+#     fi
+# fi
 
-zplug load --verbose
+# t
+# zplug load --verbose
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm use default > /dev/null
+
+# export PATH="$PATH:`yarn global bin`:$HOME/.config/yarn/global/node_modules/.bin"

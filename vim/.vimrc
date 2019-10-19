@@ -32,7 +32,7 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'junegunn/fzf.vim'
 
-Plugin 'pangloss/vim-javascript'
+" Plugin 'pangloss/vim-javascript'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'mattn/emmet-vim'                         " HTML and CSS Plugin
 Plugin 'suan/vim-instant-markdown'
@@ -44,13 +44,23 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'tpope/vim-fugitive'
 
+Plugin 'fatih/vim-go'
+
+Plugin 'vim-latex/vim-latex'
+
+Plugin 'cespare/vim-toml'
+
 call vundle#end()
 filetype plugin indent on    " required, file type detection and do language-dependent indenting
+
+" remove this after updating vim version
+let g:go_version_warning = 0
 
 " :PluginInstall
 " :PluginUpdate
 " :PluginClean
 " }}}
+
 "  General {{{
 set suffixes+=.old                " Set a lower priority for .old files
 set autoread                      " detect when a file is changed
@@ -92,6 +102,7 @@ set showcmd                       " show incomplete commands
 set title                         " set terminal title
 set wildmenu                      " tab, c^p, s-tab, c^n
 set wildmode=full                 " ex commands zsh style autocomplete
+set cursorline                    " horizontal line
 
 " make the highlighting of tabs and other non-text less annoying
 highlight SpecialKey ctermbg=none ctermfg=8
@@ -120,6 +131,9 @@ set statusline+=\ [%{strlen(&fenc)?&fenc:&enc}] " encoding
 set statusline+=\ [line\ %l\/%L] " line x of y
 " }}}
 " Settings for Plugins {{{
+"
+" vim-go
+let g:go_fmt_options = 0 " turn off autoformating on save
 
 " vim-airline options
 set laststatus=2
@@ -152,7 +166,6 @@ set t_Co=256
 set background=dark
 colorscheme solarized
 
-
 " syntastic plugin
 silent! nnoremap <F6> :SyntasticToggleMode<CR>
 nnoremap <F5> :SyntasticCheck<CR>
@@ -164,7 +177,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers=['eslint']
+" let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_loc_list_height = 5
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 
@@ -194,6 +207,7 @@ nnoremap \gs :Gstatus<CR>
 nnoremap \gw :Gwrite<CR>
 nnoremap \gc :Gcommit<CR>
 nnoremap \gd :Gdiff<CR>
+
 " }}}
 "  Mappings {{{
 let mapleader = ","
@@ -257,6 +271,9 @@ noremap <Down>   :echoe "Use j"<CR>
 nnoremap j gj
 nnoremap k gk
 
+" golang mappings
+nnoremap gor :GoRun<CR>
+
 " stupid shift
 " 'a' to 'z' map { c => s"inoremap ${c}${c}${c} ${c.toUpper}" } foreach println
 
@@ -284,7 +301,7 @@ set showbreak=↪
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " automatically execute ctags each time a file is saved
-autocmd BufWritePost * call system("ctags -R")
+"autocmd BufWritePost * call system("ctags -R")
 
 nnoremap <F2> :set invpaste paste?<CR>  " maps F2 to invert paste mode in normal mode
 set pastetoggle=<F2>                    " toggle paste mode in insert mode
