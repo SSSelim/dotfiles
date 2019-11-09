@@ -92,6 +92,7 @@ set showcmd                       " show incomplete commands
 set title                         " set terminal title
 set wildmenu                      " tab, c^p, s-tab, c^n
 set wildmode=full                 " ex commands zsh style autocomplete
+set cursorline                    " horizontal line
 
 " make the highlighting of tabs and other non-text less annoying
 highlight SpecialKey ctermbg=none ctermfg=8
@@ -152,7 +153,6 @@ set t_Co=256
 set background=dark
 colorscheme solarized
 
-
 " syntastic plugin
 silent! nnoremap <F6> :SyntasticToggleMode<CR>
 nnoremap <F5> :SyntasticCheck<CR>
@@ -164,7 +164,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers=['eslint']
+" let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_loc_list_height = 5
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 
@@ -194,6 +194,7 @@ nnoremap \gs :Gstatus<CR>
 nnoremap \gw :Gwrite<CR>
 nnoremap \gc :Gcommit<CR>
 nnoremap \gd :Gdiff<CR>
+
 " }}}
 "  Mappings {{{
 let mapleader = ","
@@ -284,7 +285,7 @@ set showbreak=↪
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " automatically execute ctags each time a file is saved
-autocmd BufWritePost * call system("ctags -R")
+"autocmd BufWritePost * call system("ctags -R")
 
 nnoremap <F2> :set invpaste paste?<CR>  " maps F2 to invert paste mode in normal mode
 set pastetoggle=<F2>                    " toggle paste mode in insert mode

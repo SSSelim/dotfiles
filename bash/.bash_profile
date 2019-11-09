@@ -31,6 +31,8 @@ function safe_source {
 
 safe_source $HOME/.bash_aliases
 
-# company specific stuff
-safe_source $HOME/.bash_profile_com
+# can be system dependent, try-forget stuff
+# can hold company specific stuff on company pc
+safe_source $HOME/.bash_aliases_local
+safe_source $HOME/.bash_profile_local
 
