@@ -1,3 +1,4 @@
+# echo "sourcing bash_aliases"
 alias open='xdg-open'
 alias va='vagrant'
 alias get='curl -OL'
