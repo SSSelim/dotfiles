@@ -17,24 +17,24 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
 
 Plugin 'Townk/vim-autoclose'
 Plugin 'ervandew/supertab'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'sickill/vim-pasta'
+"Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'sickill/vim-pasta'
 Plugin 'tpope/vim-surround'
 Plugin 'tmhedberg/matchit'
 Plugin 'tomtom/tcomment_vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'junegunn/fzf.vim'
+"Plugin 'ctrlpvim/ctrlp.vim'
+"Plugin 'junegunn/fzf.vim'
 
-Plugin 'pangloss/vim-javascript'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'mattn/emmet-vim'                         " HTML and CSS Plugin
+"Plugin 'pangloss/vim-javascript'
+"Plugin 'derekwyatt/vim-scala'
+"Plugin 'mattn/emmet-vim'                         " HTML and CSS Plugin
 Plugin 'suan/vim-instant-markdown'
 
 Plugin 'scrooloose/syntastic'
@@ -42,7 +42,7 @@ Plugin 'SirVer/ultisnips'                        " snippets engine
 Plugin 'honza/vim-snippets'                      " snippets
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/nerdtree.git'
-Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 filetype plugin indent on    " required, file type detection and do language-dependent indenting

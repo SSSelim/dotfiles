@@ -1,16 +1,19 @@
+# echo "sourcing bash_profile"
+
+# to get into the vi editing mode type
+set -o vi
+
+# EXPORT stuff
 export EDITOR='vim'
 
-export PATH=$PATH:~/bin/
-export PATH=$PATH:/usr/local/scala/bin
-export PATH=$PATH:/usr/local/spark/bin
+# for solarized dark theme
+export TERM='screen-256color'
 
-export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+export DOCKER_HIDE_LEGACY_COMMANDS=true
 
-export M2_HOME=/usr/local/maven
-export M2=$M2_HOME/bin
-export PATH=$PATH:$M2
+# PATH stuff
+export PATH=$HOME/bin:$PATH
 
-# golang specific exports
 # GOROOT is where go is installed
 export GOROOT=/usr/local/go
 # GOPATH is user's go workspace, can be colon-separated paths
@@ -18,14 +21,16 @@ export GOPATH=$HOME/go
 # add both bin to PATH
 export PATH=$PATH:$GOROOT/bin:$GOPATH
 
-# to get into the vi editing mode type
-set -o vi
+## SOURCE stuff
 
-# for solarized dark theme
-export TERM='screen-256color'
+function safe_source {
+  file="$1"
+  [[ -s "$file" ]] && source "$file"
+}
 
-export DOCKER_HIDE_LEGACY_COMMANDS=true
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/ssselim/.sdkman"
-[[ -s "/home/ssselim/.sdkman/bin/sdkman-init.sh" ]] && source "/home/ssselim/.sdkman/bin/sdkman-init.sh"
+safe_source $HOME/.bash_aliases
+
+# company specific stuff
+safe_source $HOME/.bash_profile_com
+

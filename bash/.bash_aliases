@@ -16,3 +16,7 @@ alias scala='scala -Dscala.color'
 alias bashrc='vim ~/.bashrc'
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
+
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'

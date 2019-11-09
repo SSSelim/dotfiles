@@ -1,7 +1,0 @@
-" reload ideavimrc
-" :source ~/.ideavimrc
-source ~/.vimrc
-
-set nonumber "hide line numbers
-set norelativenumber
-set numberwidth=0
