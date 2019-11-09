@@ -13,39 +13,41 @@ ln -s $HOME/dotfiles/bash/.bash_aliases_local $HOME/.bash_aliases_local
 
 ## GNU Stow
 
+*important:* in order to have Stow work as expected, this repo should be a top level directory in $HOME.
+
 ### setup
 
 * Back up the dotfiles just in case
 * Install [GNU Stow](https://www.gnu.org/software/stow/)
 
 ```shell
-$ sudo apt-get install stow
+sudo apt-get install stow
 ```
 
 * Create a directory named dotfiles in your home directory
 
 ```shell
-$ mkdir dotfiles ~/
+mkdir dotfiles ~/
 ```
 
 * Create subdirectories for your need. ex: bash, vim, tmux etc
-* Move your dotfiles in apropriate subdirectories
+* Move your dotfiles in appropriate subdirectories
 
 ### usage
 
 * Following command creates a symbolic link to .bashrc in your home directory
 
 ```shell
-# pwd: ~/dotfiles/
-$ stow bash
+cd ~/dotfiles/
+stow bash
 # .bashrc -> dotfiles/bash/.bashrc
 ```
 
 * Unlink
 
 ```shell
-# pwd: ~/dotfiles/
-$ stow -D bash # removes the symbolic link
+cd ~/dotfiles/
+stow -D bash # removes the symbolic link
 ```
 
 * Now everything is easy cheesy, dotfiles directory can be a normal git repo.
