@@ -13,6 +13,7 @@ export DOCKER_HIDE_LEGACY_COMMANDS=true
 
 # PATH stuff
 export PATH=$HOME/bin:$PATH
+export PATH=/usr/local/bin:$PATH
 
 # GOROOT is where go is installed
 export GOROOT=/usr/local/go

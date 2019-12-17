@@ -20,6 +20,7 @@ Plugin 'VundleVim/Vundle.vim'
 "Plugin 'vim-airline/vim-airline'
 "Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'lifepillar/vim-solarized8'
 
 Plugin 'Townk/vim-autoclose'
 Plugin 'ervandew/supertab'
@@ -119,39 +120,10 @@ set statusline=%f              " path relative
 set statusline+=%m%r%h%w       " flags
 set statusline+=\ [%{strlen(&fenc)?&fenc:&enc}] " encoding
 set statusline+=\ [line\ %l\/%L] " line x of y
+
+colorscheme solarized8
 " }}}
 " Settings for Plugins {{{
-
-" vim-airline options
-set laststatus=2
-set t_Co=256
-let g:airline_powerline_fonts=1
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline_theme='solarized'
-let g:airline#extensions#tabline#enabled = 1 " enable airline tabline
-let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
-let g:airline#extensions#tabline#show_buffers = 0 " do not show open buffers in tabline
-let g:airline#extensions#tabline#show_splits = 0
-
-if !exists('g:airline_symbols')
-      let g:airline_symbols = {}
-endif
-
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-
-" Vim-Colors-Solarized
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-set t_Co=256
-set background=dark
-colorscheme solarized
 
 " syntastic plugin
 silent! nnoremap <F6> :SyntasticToggleMode<CR>
@@ -289,5 +261,11 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 nnoremap <F2> :set invpaste paste?<CR>  " maps F2 to invert paste mode in normal mode
 set pastetoggle=<F2>                    " toggle paste mode in insert mode
+
+" copy/paste works platform/tool indepedent
+vmap <leader>y :w! /tmp/vitmp<CR>
+nnoremap <leader>p :r! cat /tmp/vitmp<CR>
+
+
 " }}}
 " vim:foldmethod=marker:foldlevel=0
