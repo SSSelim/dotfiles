@@ -37,3 +37,4 @@ safe_source $HOME/.bash_aliases
 safe_source $HOME/.bash_aliases_local
 safe_source $HOME/.bash_profile_local
 
+setxkbmap -option caps:ctrl_modifier
